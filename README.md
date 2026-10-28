@@ -1,35 +1,25 @@
-# Kishan R. Nair — Portfolio (LOG!C)
+# Kishan R Nair — Portfolio
 
-A dark luxury, editorial engineering portfolio built with **Vite + React**, modern CSS, and **React Router**.
+A luxury editorial portfolio built with React 19, TanStack Start, Tailwind CSS v4, Three.js / React Three Fiber, Motion, and Radix UI.
 
-## Visual Identity & Color Palette
-- **Obsidian Espresso (`#141311`)** — Primary background
-- **Soft Ivory (`#F3EBDD`)** — Headlines and primary text
-- **Antique Champagne (`#B59A6A`)** — Subtle accents, primary buttons, and highlights
-- **Dark Mocha (`#24211C`)** — Cards, content panels, and secondary sections
-- **Warm Taupe (`#B7B0A4`)** — Body text and supporting details
+## Features
 
-## Typography
-- **Display Headings**: `Instrument Serif` (Editorial luxury with italic accents)
-- **Body & UI**: `Inter` (Legible modern sans-serif)
-- **Micro-labels & Code**: `JetBrains Mono` (Technical precision)
-
-## Multi-Page Architecture
-- `/` — **Home** (Philosophy, How I Build, 4-Stage Process, Selected Projects, CTA)
-- `/projects` — **Projects Gallery** (Interactive search, category filtering, 6 engineered architectures)
-- `/projects/:id` — **Project Blueprint** (Deep-dive telemetry data pipelines, capabilities, deployed frameworks)
-- `/about` — **About & Credentials** (Mission, 17-item Technology Stack, verified industry credentials)
-- `/contact` — **Contact & Let's Talk** (Direct communication channels, socials, inquiry form)
-- `/resume` — **Curriculum Vitae** (Executive summary, SAM Corporate experience, skills, education, print/download)
+- **Obsidian Espresso Design System**: Refined dark luxury palette with bespoke typography (Cormorant Garamond + DM Sans).
+- **Interactive 3D Hero**: Custom Three.js canvas built with `@react-three/fiber` and `@react-three/drei`.
+- **Dynamic Interactive Components**: Custom glowing cursor tracker, skills conveyor, project case scenes, and smooth scroll reveals.
+- **Modern Routing & SSR**: Full-stack TanStack Start router architecture.
 
 ## Development
-```bash
+
+Install dependencies and start the local development server:
+
+```sh
 npm install
 npm run dev
 ```
 
-## Production Build
-```bash
-npm run build
-npm run preview
-```
+### Build & Test
+
+- **Lint**: `npm run lint`
+- **Test**: `npm test`
+- **Build**: `npm run build`
