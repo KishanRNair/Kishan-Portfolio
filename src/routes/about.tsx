@@ -62,30 +62,22 @@ function PortraitFrame() {
         >
           KR
         </span>
-        {/* Portrait placeholder composition */}
+        {/* Portrait container with subtle luxury framing & depth */}
         <div
-          className="absolute inset-5 rounded-lg border border-primary/20"
+          className="group absolute inset-3 sm:inset-4 overflow-hidden rounded-lg border border-primary/25 bg-card shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85)] ring-1 ring-white/10"
           style={{
-            transform: "translateZ(30px)",
-            background:
-              "linear-gradient(160deg, oklch(0.3 0.03 75), oklch(0.21 0.012 80) 60%, oklch(0.26 0.02 70))",
+            transform: "translateZ(32px)",
           }}
         >
-          <div className="flex h-full flex-col items-center justify-center gap-3 p-6 text-center">
-            <div
-              className="h-20 w-20 rounded-full"
-              style={{
-                background:
-                  "radial-gradient(circle at 32% 30%, oklch(0.4 0.03 80), oklch(0.22 0.01 80))",
-                boxShadow:
-                  "inset -6px -8px 18px rgba(0,0,0,0.55), 0 12px 30px rgba(0,0,0,0.45)",
-              }}
-            />
-            {/* TODO: replace this composition with your portrait photo */}
-            <p className="eyebrow text-[0.58rem] text-muted-foreground">
-              Portrait placeholder — replace with your photo
-            </p>
-          </div>
+          <img
+            src="/images/portrait.jpg"
+            alt="Kishan R Nair"
+            className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            loading="eager"
+          />
+          {/* Subtle editorial vignette & specular sheen */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent opacity-75" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-primary/5 to-transparent" />
         </div>
         {/* Champagne ring accent */}
         <div

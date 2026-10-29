@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { PageShell, Reveal, WordsReveal } from "@/components/Reveal";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { getProject, projectNeighbors } from "@/data/projects";
@@ -52,9 +52,22 @@ function ProjectDetail() {
         </Link>
 
         <header className="mt-10">
-          <p className="eyebrow text-primary">
-            {project.category} · {project.year}
-          </p>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <p className="eyebrow text-primary">
+              {project.category} · {project.year}
+            </p>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary transition-colors hover:border-primary/60 hover:bg-primary/20"
+              >
+                <span>Visit live site</span>
+                <ExternalLink size={12} />
+              </a>
+            )}
+          </div>
           <h1 className="text-display mt-4 max-w-3xl font-display font-medium text-foreground">
             <WordsReveal text={project.title} />
           </h1>
@@ -65,7 +78,11 @@ function ProjectDetail() {
 
         {/* Large hero visual */}
         <Reveal className="mt-14">
-          <ProjectVisual visual={project.visual} className="aspect-[16/9]" />
+          <ProjectVisual
+            visual={project.visual}
+            project={project}
+            className="aspect-[16/9]"
+          />
         </Reveal>
 
         {/* Meta grid */}

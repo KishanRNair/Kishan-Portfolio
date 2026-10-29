@@ -148,7 +148,11 @@ function Home() {
                 >
                   <div className="group relative aspect-[16/11] overflow-hidden rounded-xl border border-border bg-card">
                     <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-[1.03]">
-                      <ProjectVisual visual={project.visual} className="h-full w-full rounded-none border-0" />
+                      <ProjectVisual
+                        visual={project.visual}
+                        project={project}
+                        className="h-full w-full rounded-none border-0"
+                      />
                     </div>
                   </div>
                 </Link>

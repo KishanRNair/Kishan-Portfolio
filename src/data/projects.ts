@@ -32,31 +32,48 @@ export interface Project {
   outcome: string;
   visual: ProjectVisual;
   featured: boolean;
+  liveUrl?: string;
+  images?: {
+    desktop?: string;
+    mobile?: string;
+  };
 }
 
 export const projects: Project[] = [
   {
-    slug: "placeholder-aurora",
-    title: "Aurora — Placeholder Project",
-    category: "Interactive Experience",
-    year: "2026",
+    slug: "reflow-healthcare",
+    title: "Re Flow Healthcare",
+    category: "Web Application",
+    year: "2024",
     summary:
-      "Placeholder summary. A short one-line description of what this project is and who it was for.",
+      "A modern, responsive pharmaceutical platform and therapeutic formulation directory engineered for accessible healthcare.",
     description:
-      "Placeholder overview. Replace this with a two-to-three sentence description of the project: what it is, who it was built for, and what made it interesting. Keep it concise and specific.",
+      "Designed and engineered an authoritative web presence for Re Flow Healthcare, an ethical pharmaceutical company founded in Cochin, Kerala. The platform showcases an accessible therapeutic catalog across General Medicines, Antihistamines, and Proton Pump Inhibitors with seamless navigation, responsive layouts, and an inquiry system.",
     problem:
-      "Placeholder objective. Describe the problem the project set out to solve, or the goal it was measured against.",
-    role: "Placeholder — e.g. Design & Frontend Development",
-    tools: ["React", "TypeScript", "WebGL", "Placeholder Tool"],
+      "The brand required an authoritative, trustworthy digital platform to communicate its quality standards, WHO-GMP aligned manufacturing ethos, and therapeutic portfolio to distributors, clinicians, and patients across India.",
+    role: "Frontend Architecture & UI/UX Engineering",
+    tools: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "Responsive Design",
+      "Structured Data (JSON-LD)",
+    ],
     process: [
-      "Placeholder process step one — research or discovery.",
-      "Placeholder process step two — design decisions or prototyping.",
-      "Placeholder process step three — implementation approach.",
+      "Structured an intuitive therapeutic catalog highlighting formulations with rapid search and category browsing.",
+      "Crafted an accessible, mobile-first design system utilizing Plus Jakarta Sans and Inter typography with crisp healthcare blue tones.",
+      "Implemented Schema.org JSON-LD structured data and modern meta tags for optimized search visibility and discoverability.",
     ],
     outcome:
-      "Placeholder outcome or learnings. Summarize what shipped and what you learned. Do not invent metrics or client results.",
-    visual: "orbit-product",
+      "Shipped a fast, polished web platform that strengthens brand credibility and streamlines doctor and distributor inquiries.",
+    visual: "tilt-browser",
     featured: true,
+    liveUrl: "https://reflowhealthcare.com",
+    images: {
+      desktop: "/projects/reflow/desktop.png",
+      mobile: "/projects/reflow/mobile.png",
+    },
   },
   {
     slug: "placeholder-atlas",

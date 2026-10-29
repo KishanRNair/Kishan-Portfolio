@@ -5,7 +5,7 @@ import { PageShell, Reveal, WordsReveal } from "@/components/Reveal";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { projects } from "@/data/projects";
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "Projects — Kishan R Nair" },
@@ -87,6 +87,7 @@ function ProjectsPage() {
                   >
                     <ProjectVisual
                       visual={project.visual}
+                      project={project}
                       className={`aspect-[4/3] ${wide ? "md:aspect-[16/11]" : ""}`}
                     />
                     <div className="mt-6 flex items-start justify-between gap-4">
