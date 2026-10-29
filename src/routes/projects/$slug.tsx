@@ -4,7 +4,40 @@ import { PageShell, Reveal, WordsReveal } from "@/components/Reveal";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { getProject, projectNeighbors } from "@/data/projects";
 
+// Property order matters for inference: loader first, head after.
 export const Route = createFileRoute("/projects/$slug")({
+  loader: async ({ params }) => {
+    const project = getProject(params.slug);
+    if (!project) throw notFound();
+    return { project };
+  },
+  errorComponent: ({ error, reset }) => (
+    <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-6 text-center">
+      <h1 className="text-title font-display text-foreground">
+        This project didn't load
+      </h1>
+      <p className="text-sm text-muted-foreground">
+        {error instanceof Error ? error.message : "Something went wrong."}
+      </p>
+      <button
+        onClick={() => reset()}
+        className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
+      >
+        Try again
+      </button>
+    </div>
+  ),
+  notFoundComponent: () => (
+    <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-6 text-center">
+      <h1 className="text-title font-display text-foreground">Project not found</h1>
+      <Link
+        to="/projects"
+        className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
+      >
+        Back to all projects
+      </Link>
+    </div>
+  ),
   head: ({ loaderData }) => ({
     meta: [
       {
@@ -28,11 +61,6 @@ export const Route = createFileRoute("/projects/$slug")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  loader: ({ params }) => {
-    const project = getProject(params.slug);
-    if (!project) throw notFound();
-    return { project };
-  },
   component: ProjectDetail,
 });
 

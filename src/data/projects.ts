@@ -16,7 +16,8 @@ export type ProjectVisual =
   | "orbit-product"
   | "tilt-browser"
   | "abstract-env"
-  | "depth-layers";
+  | "depth-layers"
+  | "workstation-scene";
 
 export interface Project {
   slug: string;
@@ -76,27 +77,39 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "placeholder-atlas",
-    title: "Atlas — Placeholder Project",
-    category: "Web Application",
-    year: "2025",
+    slug: "enterprise-sustainability-saas",
+    title: "Enterprise Sustainability Platform",
+    category: "Enterprise SaaS · Web Platform",
+    year: "2024",
     summary:
-      "Placeholder summary. One concise line describing the product and its purpose.",
+      "A comprehensive enterprise sustainability platform enabling organizations to measure, track, and report Scope 1–3 emissions with gamified compliance benchmarks.",
     description:
-      "Placeholder overview. Two to three sentences about the product, its audience, and your contribution.",
+      "Engineered the frontend architecture and user interface for an enterprise sustainability SaaS application. The platform streamlines environmental impact accounting, automated ESG data collection, carbon footprint auditing, and executive dashboards for multi-national corporate sustainability governance.",
     problem:
-      "Placeholder objective. What needed to be solved, and for whom.",
-    role: "Placeholder — e.g. Frontend Development",
-    tools: ["React", "Node.js", "PostgreSQL", "Placeholder Tool"],
+      "Modern corporations face complex ESG compliance reporting mandates that are fragmented across spreadsheets and siloed legacy systems. The goal was to build a cohesive, responsive web platform that makes carbon accounting intuitive, auditable, and actionable.",
+    role: "Frontend Architecture & UI Engineering",
+    tools: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "Three.js",
+      "Motion",
+      "REST APIs",
+    ],
     process: [
-      "Placeholder process step one.",
-      "Placeholder process step two.",
-      "Placeholder process step three.",
+      "Engineered an enterprise design system supporting high-density carbon analytics, dynamic data grids, and audit workflows.",
+      "Designed real-time data visualization components for tracking organizational emissions trends across Scopes 1, 2, and 3.",
+      "Built responsive, accessible interfaces with dark/light themes and strict type-safe state management.",
     ],
     outcome:
-      "Placeholder outcome. What shipped and what you learned — no invented metrics.",
-    visual: "tilt-browser",
+      "Delivered a production-ready enterprise application empowering corporate teams to centralize sustainability metrics and automate audit-ready reporting.",
+    visual: "workstation-scene",
     featured: true,
+    images: {
+      desktop: "/projects/sustainability/landing-hero.png",
+      mobile: "/projects/sustainability/landing.png",
+    },
   },
   {
     slug: "placeholder-monolith",

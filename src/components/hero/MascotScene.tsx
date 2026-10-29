@@ -1,4 +1,4 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { ContactShadows, Environment, Lightformer } from "@react-three/drei";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
@@ -85,12 +85,16 @@ function Smoke({ refs, reduced }: { refs: SceneRefs; reduced: boolean }) {
   );
 
   useFrame((state) => {
-    if (!matRef.current || reduced) return;
-    matRef.current.uniforms.uTime.value = state.clock.elapsedTime;
-    matRef.current.uniforms.uPointer.value.set(
-      refs.pointer.current.x,
-      refs.pointer.current.y
-    );
+    const mat = matRef.current;
+    if (!mat || reduced) return;
+    const timeU = mat.uniforms["uTime"];
+    const pointerU = mat.uniforms["uPointer"];
+    if (timeU) timeU.value = state.clock.elapsedTime;
+    if (pointerU)
+      (pointerU.value as THREE.Vector2).set(
+        refs.pointer.current.x,
+        refs.pointer.current.y
+      );
   });
 
   return (
@@ -111,11 +115,21 @@ function Smoke({ refs, reduced }: { refs: SceneRefs; reduced: boolean }) {
 /* ---------------- The Monolith (procedural mascot) ---------------- */
 
 function Monolith({ refs, reduced }: { refs: SceneRefs; reduced: boolean }) {
+  const { viewport } = useThree();
   const scrollGroup = useRef<THREE.Group>(null);
   const tiltGroup = useRef<THREE.Group>(null);
   const ringRef = useRef<THREE.Mesh>(null);
   const shardsRef = useRef<THREE.Group>(null);
   const orbRef = useRef<THREE.Mesh>(null);
+
+  // Responsive horizontal positioning: on wide displays (desktop/laptops),
+  // place the 3D monolith in the right column (~65-70% across) to fill the empty space
+  // and give breathing room to the editorial headline on the left.
+  // On mobile/narrow viewports (viewport.width <= 5.5), keep it centered.
+  const posX =
+    viewport.width > 5.5
+      ? Math.min(1.4, (viewport.width - 4.16) * 0.38 + 0.5)
+      : 0;
 
   // Sculpted silhouette for the lathe body.
   const profile = useMemo(() => {
@@ -179,8 +193,8 @@ function Monolith({ refs, reduced }: { refs: SceneRefs; reduced: boolean }) {
     if (shardsRef.current && !reduced) {
       shardsRef.current.rotation.y = t * 0.1;
       shardsRef.current.children.forEach((child, i) => {
-        child.position.y =
-          shards[i].base[1] + Math.sin(t * 0.8 + i * 1.7) * 0.16;
+        const s = shards[i];
+        if (s) child.position.y = s.base[1] + Math.sin(t * 0.8 + i * 1.7) * 0.16;
       });
     }
     if (orbRef.current && !reduced) {
@@ -190,7 +204,7 @@ function Monolith({ refs, reduced }: { refs: SceneRefs; reduced: boolean }) {
   });
 
   return (
-    <>
+    <group position={[posX, 0, 0]}>
       <group ref={scrollGroup}>
         <group ref={tiltGroup}>
           {/* Sculpted obsidian body */}
@@ -253,7 +267,7 @@ function Monolith({ refs, reduced }: { refs: SceneRefs; reduced: boolean }) {
         far={3}
         color="#000000"
       />
-    </>
+    </group>
   );
 }
 

@@ -16,6 +16,7 @@ import type { Project, ProjectVisual as VisualKey } from "@/data/projects";
 import { useWebGL } from "@/hooks/useWebGL";
 
 const MiniScene = lazy(() => import("./project-scenes/MiniScene"));
+const WorkstationScene = lazy(() => import("./project-scenes/WorkstationScene"));
 
 /* ---------- 2.5D Layered Device Showcase (with Real Screenshots & Brand Ambient Glow) ---------- */
 
@@ -270,7 +271,17 @@ export function ProjectVisual({
   const hasCustomImages = Boolean(project?.images?.desktop || project?.images?.mobile);
 
   let body: ReactNode;
-  if (hasCustomImages && project) {
+  if (visual === "workstation-scene") {
+    if (mounted && webgl) {
+      body = (
+        <Suspense fallback={<GLFallback />}>
+          <WorkstationScene />
+        </Suspense>
+      );
+    } else {
+      body = <GLFallback />;
+    }
+  } else if (hasCustomImages && project) {
     body = <LayeredShowcase project={project} />;
   } else if (visual === "tilt-browser") {
     body = <TiltBrowser />;
@@ -279,7 +290,7 @@ export function ProjectVisual({
   } else if (mounted && webgl) {
     body = (
       <Suspense fallback={<GLFallback />}>
-        <MiniScene variant={visual} pointer={pointerRef} />
+        <MiniScene variant={visual as "orbit-product" | "abstract-env"} pointer={pointerRef} />
       </Suspense>
     );
   } else {
@@ -292,7 +303,7 @@ export function ProjectVisual({
       className={`relative overflow-hidden rounded-xl border border-border bg-card ${className ?? ""}`}
     >
       {body}
-      {!hasCustomImages && (
+      {!hasCustomImages && visual !== "workstation-scene" && (
         <span className="eyebrow absolute bottom-3 left-4 z-10 text-[0.58rem] text-muted-foreground/70">
           Placeholder visual — replace with your own scene
         </span>

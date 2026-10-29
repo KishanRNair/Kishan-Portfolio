@@ -54,7 +54,7 @@ export function HeroStage({ className }: { className?: string }) {
           }}
         />
         <div
-          className="absolute left-1/2 top-1/2 h-[70vmax] w-[70vmax] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          className="absolute left-1/2 md:left-[62%] top-1/2 h-[70vmax] w-[70vmax] -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-700"
           style={{
             background:
               "radial-gradient(closest-side, oklch(0.2 0.012 80 / 55%), transparent 70%)",
