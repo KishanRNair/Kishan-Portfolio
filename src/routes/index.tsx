@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import { HeroStage } from "@/components/hero/HeroStage";
 import {
@@ -12,6 +13,9 @@ import { ProjectVisual } from "@/components/ProjectVisual";
 import { site } from "@/data/site";
 import { projects } from "@/data/projects";
 import { skillCategories } from "@/data/skills";
+import { useWebGL } from "@/hooks/useWebGL";
+
+const MascotScene = lazy(() => import("@/components/hero/MascotScene"));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -42,43 +46,65 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const featured = projects.filter((p) => p.featured).slice(0, 4);
+  const webgl = useWebGL();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   return (
     <PageShell>
       {/* ---------- Hero ---------- */}
       <section className="relative flex min-h-[100svh] items-center overflow-hidden">
-        <HeroStage className="absolute inset-0" />
-        <div className="pointer-events-none relative z-10 mx-auto w-full max-w-6xl px-6 pt-24">
-          <p className="eyebrow text-primary">
-            {site.availability} · {site.location}
-          </p>
-          <h1 className="text-hero mt-6 max-w-4xl font-display font-medium text-foreground">
-            <WordsReveal text="I build digital experiences that feel alive." />
-          </h1>
-          <p className="mt-8 max-w-xl text-lg text-muted-foreground">
-            {/* TODO: replace with your own supporting statement */}
-            {site.name} — {site.role}. Placeholder statement: crafting
-            interfaces where engineering precision meets editorial design.
-          </p>
-          <div className="pointer-events-auto mt-10 flex flex-wrap items-center gap-4">
-            <Link
-              to="/projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              Explore My Work
-              <ArrowRight
-                size={15}
-                className="transition-transform group-hover:translate-x-0.5"
-              />
-            </Link>
-            <Link
-              to="/resume"
-              className="link-line text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              View Resume
-            </Link>
+        {/* Ambient atmospheric backdrop */}
+        <HeroStage className="absolute inset-0 pointer-events-none" />
+
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-24 pb-16 md:py-32">
+          <div className="grid items-center gap-8 md:grid-cols-12 lg:gap-12">
+            {/* Left Column: Editorial Headline & Copy */}
+            <div className="md:col-span-7 lg:col-span-7 xl:col-span-7">
+              <p className="eyebrow text-primary">
+                {site.availability} · {site.location}
+              </p>
+              <h1 className="text-hero mt-6 font-display font-medium text-foreground">
+                <WordsReveal text="I build digital experiences that feel alive." />
+              </h1>
+              <p className="mt-8 max-w-xl text-lg text-muted-foreground">
+                {/* TODO: replace with your own supporting statement */}
+                {site.name} — {site.role}. Placeholder statement: crafting
+                interfaces where engineering precision meets editorial design.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <Link
+                  to="/projects"
+                  className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                >
+                  Explore My Work
+                  <ArrowRight
+                    size={15}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </Link>
+                <Link
+                  to="/resume"
+                  className="link-line text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  View Resume
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: 3D Interactive Mascot */}
+            <div className="md:col-span-5 lg:col-span-5 xl:col-span-5 flex items-center justify-center pt-4 md:pt-0">
+              {mounted && webgl ? (
+                <Suspense fallback={null}>
+                  <MascotScene scale={0.82} />
+                </Suspense>
+              ) : null}
+            </div>
           </div>
         </div>
+
+        {/* Scroll indicator */}
         <div
           aria-hidden
           className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-muted-foreground"

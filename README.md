@@ -5,7 +5,7 @@ A luxury editorial portfolio built with React 19, TanStack Start, Tailwind CSS v
 ## Features
 
 - **Obsidian Espresso Design System**: Refined dark luxury palette with bespoke typography (Cormorant Garamond + DM Sans).
-- **Interactive 3D Hero**: Custom Three.js canvas built with `@react-three/fiber` and `@react-three/drei`.
+- **Interactive 3D Hero Mascot**: Aurum, an interactive 3D procedural mascot with real-time cursor tracking, expressive animated visor, spin/flip physics, and golden sparkle bursts.
 - **Dynamic Interactive Components**: Custom glowing cursor tracker, skills conveyor, project case scenes, and smooth scroll reveals.
 - **Modern Routing & SSR**: Full-stack TanStack Start router architecture.
 

@@ -147,8 +147,8 @@
 /* ---------- Typographic scale (fluid) ---------- */
 
 @utility text-hero {
-  font-size: clamp(3rem, 9vw, 7.5rem);
-  line-height: 0.95;
+  font-size: clamp(2.6rem, 5.8vw, 6.2rem);
+  line-height: 0.98;
   letter-spacing: -0.02em;
 }
 
