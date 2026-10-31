@@ -42,9 +42,7 @@ function ProjectsPage() {
             <WordsReveal text="Work, experiments, and things built for the joy of building." />
           </h1>
           <p className="mt-6 max-w-xl text-muted-foreground">
-            Placeholder introduction — a short description of what visitors will
-            find here. All projects below are clearly labeled placeholders
-            waiting for your real work.
+            A curated selection of shipped client platforms, enterprise SaaS applications, and e-commerce systems engineered for performance and reliability.
           </p>
         </Reveal>
 
@@ -69,48 +67,85 @@ function ProjectsPage() {
           </div>
         </Reveal>
 
-        {/* Gallery — mixed sizes, not identical cards */}
-        <div className="mt-16 grid gap-10 md:grid-cols-12 md:gap-x-10">
-          {visible.map((project, i) => {
-            const wide = i % 3 !== 2; // every third entry is narrower
-            return (
-              <Reveal
-                key={project.slug}
-                delay={(i % 2) * 0.08}
-                className={wide ? "md:col-span-7" : "md:col-span-5"}
-              >
-                <article>
+        {/* Projects List — Sequential side-by-side alignment (left card, right info) */}
+        <div className="mt-16 space-y-20 md:space-y-28">
+          {visible.map((project, i) => (
+            <Reveal key={project.slug} delay={(i % 2) * 0.08}>
+              <article className="grid items-center gap-8 md:grid-cols-12 lg:gap-12">
+                {/* Left Side: 2.5D Device Showcase Card (Exact same dimensions as home page) */}
+                <Link
+                  to="/projects/$slug"
+                  params={{ slug: project.slug }}
+                  className="block md:col-span-7"
+                >
+                  <div className="group relative aspect-[16/11] overflow-hidden rounded-xl border border-border bg-card">
+                    <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-[1.03]">
+                      <ProjectVisual
+                        visual={project.visual}
+                        project={project}
+                        className="h-full w-full rounded-none border-0"
+                      />
+                    </div>
+                  </div>
+                </Link>
+
+                {/* Right Side: Project Info */}
+                <div className="md:col-span-5 md:pl-2">
+                  <p className="eyebrow text-primary">{project.category}</p>
                   <Link
                     to="/projects/$slug"
                     params={{ slug: project.slug }}
                     className="group block"
                   >
-                    <ProjectVisual
-                      visual={project.visual}
-                      project={project}
-                      className={`aspect-[4/3] ${wide ? "md:aspect-[16/11]" : ""}`}
-                    />
-                    <div className="mt-6 flex items-start justify-between gap-4">
-                      <div>
-                        <p className="eyebrow text-primary">
-                          {project.category} · {project.year}
-                        </p>
-                        <h2 className="text-title mt-2 font-display font-medium text-foreground">
-                          {project.title}
-                        </h2>
-                        <p className="mt-3 max-w-lg text-sm text-muted-foreground">
-                          {project.summary}
-                        </p>
-                      </div>
-                      <span className="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-primary group-hover:text-primary">
-                        <ArrowUpRight size={15} />
-                      </span>
-                    </div>
+                    <h2 className="text-title mt-3 font-display font-medium text-foreground transition-colors group-hover:text-primary">
+                      {project.title}
+                    </h2>
                   </Link>
-                </article>
-              </Reveal>
-            );
-          })}
+                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                    {project.summary}
+                  </p>
+
+                  {/* Tools Badges */}
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.tools.slice(0, 4).map((tool) => (
+                      <span
+                        key={tool}
+                        className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Actions */}
+                  <div className="mt-6 flex flex-wrap items-center gap-4">
+                    <Link
+                      to="/projects/$slug"
+                      params={{ slug: project.slug }}
+                      className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+                    >
+                      View project
+                      <ArrowUpRight
+                        size={15}
+                        className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      />
+                    </Link>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        Live site
+                        <ArrowUpRight size={13} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </div>
     </PageShell>

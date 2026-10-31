@@ -105,15 +105,17 @@ function AboutPage() {
             </Reveal>
             <Reveal delay={0.12}>
               <div className="mt-8 space-y-5 leading-relaxed text-muted-foreground">
-                {/* TODO: replace with your own biography */}
                 <p>
-                  Placeholder biography, paragraph one — who you are, where you
-                  work, and the kind of problems you enjoy. Keep it in your own
-                  voice; this page is meant to feel personal.
+                  I am a Computer Science & Data Science engineer and full-stack developer
+                  based in Kochi, Kerala. My work lives at the intersection of robust backend
+                  systems, artificial intelligence, and cinematic frontend design.
                 </p>
                 <p>
-                  Placeholder biography, paragraph two — how you got here, what
-                  you care about in craft, and what you are exploring next.
+                  From engineering production full-stack enterprise platforms at SAM Corporate
+                  with React, Next.js, NestJS, and PostgreSQL, to orchestrating multi-agent AI
+                  pipelines with LangChain and Python, and sculpting real-time 3D interactive
+                  WebGL worlds with Three.js—I craft digital products where architectural
+                  rigor meets fluid, responsive aesthetics.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-4">
@@ -147,11 +149,10 @@ function AboutPage() {
               <Eyebrow>Interests & focus</Eyebrow>
               <ul className="mt-8 space-y-4">
                 {[
-                  // TODO: replace with your own focus areas
-                  "Placeholder — interactive experiences and creative coding",
-                  "Placeholder — design systems and interface engineering",
-                  "Placeholder — motion, 3D, and shader-driven storytelling",
-                  "Placeholder — accessibility and performance craft",
+                  "Full-stack architecture & enterprise platforms (React, Next.js, NestJS, PostgreSQL)",
+                  "Interactive 3D web experiences, creative coding & shaders (Three.js, WebGL)",
+                  "AI/ML engineering, multi-agent systems & NLP workflows (LangChain, Python)",
+                  "Enterprise data analytics, ETL pipelines & BI intelligence (Power BI, SQL)",
                 ].map((item) => (
                   <li
                     key={item}
@@ -181,31 +182,35 @@ function AboutPage() {
           </div>
         </div>
 
-        {/* Timeline placeholder */}
+        {/* Timeline */}
         <div className="mt-28">
           <Reveal>
-            <Eyebrow>Timeline</Eyebrow>
+            <Eyebrow>Milestones & Career Journey</Eyebrow>
             <p className="mt-4 max-w-lg text-sm text-muted-foreground">
-              Placeholder timeline — replace each entry with your own education
-              or experience milestones. Dates and details below are samples.
+              A chronological trajectory across software engineering, data analytics, and enterprise systems.
             </p>
           </Reveal>
           <div className="mt-10 border-l border-border pl-8">
             {[
               {
-                period: "20XX — Present",
-                title: "Placeholder — Current role or study",
-                note: "One-line placeholder description of this chapter.",
+                period: "Feb 2026 — Present",
+                title: "ESG Associate · SAM Corporate",
+                note: "Architecting full-stack ESG applications, carbon tracking engines, and executive Power BI analytics dashboards.",
               },
               {
-                period: "20XX — 20XX",
-                title: "Placeholder — Earlier role or study",
-                note: "One-line placeholder description of this chapter.",
+                period: "Jul 2025 — Dec 2025",
+                title: "Data Analyst Intern · Paleri Business Info Solutions",
+                note: "Led a cross-functional 20-member analytics team, optimized supply-chain data pipelines, and engineered business intelligence reports.",
               },
               {
-                period: "20XX",
-                title: "Placeholder — Where it started",
-                note: "One-line placeholder description of this chapter.",
+                period: "Jun 2025 — Jul 2025",
+                title: "Data Analyst Intern · Keltron REC",
+                note: "Engineered interactive reporting dashboards and implemented advanced automated data transformation pipelines.",
+              },
+              {
+                period: "2022 — 2026",
+                title: "B.Tech in Computer Science & Engineering (Data Science) · SCMS",
+                note: "Graduating with 7.11 CGPA, specializing in full-stack web engineering, artificial intelligence, and data modeling.",
               },
             ].map((entry, i) => (
               <Reveal key={i} delay={i * 0.1}>
@@ -233,9 +238,7 @@ function AboutPage() {
             />
             <p className="eyebrow text-primary">Philosophy</p>
             <blockquote className="mt-6 max-w-2xl font-display text-2xl italic leading-snug text-foreground md:text-3xl">
-              {/* TODO: replace with your own philosophy */}
-              "Placeholder philosophy — a short personal statement about how you
-              approach building things and why it matters to you."
+              "Engineering precision gives systems durability; editorial design and real-time interaction make them unforgettable."
             </blockquote>
           </div>
         </Reveal>

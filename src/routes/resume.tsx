@@ -184,12 +184,6 @@ function ResumePage() {
             </section>
           </div>
         </Reveal>
-
-        <p className="no-print mt-6 text-center text-xs text-muted-foreground">
-          All resume content is placeholder — edit{" "}
-          <code className="text-foreground">src/data/resume.ts</code> to make it
-          yours. The PDF is generated from that same data.
-        </p>
       </div>
     </PageShell>
   );

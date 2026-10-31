@@ -66,9 +66,7 @@ function Home() {
                 <WordsReveal text="I build digital experiences that feel alive." />
               </h1>
               <p className="mt-8 max-w-xl text-lg text-muted-foreground">
-                {/* TODO: replace with your own supporting statement */}
-                {site.name} — {site.role}. Placeholder statement: crafting
-                interfaces where engineering precision meets editorial design.
+                Computer Science & Data Science engineer specializing in full-stack architecture, AI/ML systems, and real-time 3D web experiences where engineering precision meets editorial craft.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link
@@ -124,11 +122,8 @@ function Home() {
           </h2>
           <div className="md:col-span-4 md:pt-4">
             <Reveal delay={0.15}>
-              {/* TODO: replace with your own introduction */}
               <p className="text-muted-foreground">
-                Placeholder introduction — a short paragraph about who you are,
-                the kind of work you do, and what drives it. Keep it personal
-                and specific rather than corporate.
+                Based in Kochi, India, I bridge the gap between heavy-lifting backend architecture, machine learning pipelines, and fluid real-time web experiences. With hands-on experience building enterprise SaaS platforms, multi-agent AI systems, and interactive 3D web applications, I create software that feels intelligent and alive.
               </p>
               <Link
                 to="/about"
@@ -181,7 +176,7 @@ function Home() {
                 </Link>
                 <div className={`md:col-span-5 ${i % 2 === 1 ? "md:order-1 md:pr-4" : "md:pl-4"}`}>
                   <p className="eyebrow text-primary">
-                    {project.category} · {project.year}
+                    {project.category}
                   </p>
                   <h3 className="text-title mt-4 font-display font-medium text-foreground">
                     {project.title}

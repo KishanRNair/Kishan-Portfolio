@@ -102,8 +102,7 @@ function ContactPage() {
                 <WordsReveal text="Let's make something considered." />
               </h1>
               <p className="mt-6 leading-relaxed text-muted-foreground">
-                Placeholder invitation — a short line inviting the kind of
-                collaborations you want to hear about.
+                Whether you have an enterprise platform to architect, an AI/data system to engineer, an interactive 3D web experience to build, or simply want to connect—my inbox is open.
               </p>
               <a
                 href={`mailto:${site.email}`}

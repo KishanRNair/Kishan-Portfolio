@@ -44,7 +44,7 @@ export const projects: Project[] = [
   {
     slug: "reflow-healthcare",
     title: "Re Flow Healthcare",
-    category: "Web Application",
+    category: "Website",
     year: "2024",
     summary:
       "A modern, responsive pharmaceutical platform and therapeutic formulation directory engineered for accessible healthcare.",
@@ -79,7 +79,7 @@ export const projects: Project[] = [
   {
     slug: "enterprise-sustainability-saas",
     title: "Enterprise Sustainability Platform",
-    category: "Enterprise SaaS · Web Platform",
+    category: "SaaS Based Application",
     year: "2024",
     summary:
       "A comprehensive enterprise sustainability platform enabling organizations to measure, track, and report Scope 1–3 emissions with gamified compliance benchmarks.",
@@ -114,7 +114,7 @@ export const projects: Project[] = [
   {
     slug: "vians-kitchen-hub",
     title: "Vian's Kitch Hub",
-    category: "E-Commerce · Shopify Platform",
+    category: "E-Commerce Website",
     year: "2024",
     summary:
       "A modern, conversion-focused Shopify storefront engineered for premium cookware, tri-ply stainless steel kitchenware, and culinary essentials.",

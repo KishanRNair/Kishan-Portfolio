@@ -82,7 +82,7 @@ function ProjectDetail() {
         <header className="mt-10">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <p className="eyebrow text-primary">
-              {project.category} · {project.year}
+              {project.category}
             </p>
             {project.liveUrl && (
               <a
@@ -134,8 +134,8 @@ function ProjectDetail() {
               </div>
             </div>
             <div>
-              <p className="eyebrow text-muted-foreground">Year</p>
-              <p className="mt-2 text-sm text-foreground">{project.year}</p>
+              <p className="eyebrow text-muted-foreground">Category</p>
+              <p className="mt-2 text-sm text-foreground">{project.category}</p>
             </div>
           </div>
         </Reveal>

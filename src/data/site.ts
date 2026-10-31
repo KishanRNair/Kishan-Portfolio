@@ -3,22 +3,17 @@
  * Name, role, availability, email, and social links all live here.
  */
 export const site = {
-  // TODO: Replace with your real name / wordmark.
   name: "Kishan R Nair",
   wordmark: "Kishan R Nair",
   logo: "/KNAIR/wordmark.png",
-  // TODO: Replace with your actual role or title.
-  role: "Creative Developer & Design Engineer",
-  // TODO: Replace with your real availability and location.
-  availability: "Available for select projects",
-  location: "Bengaluru, India — working worldwide",
-  // TODO: Replace with your real email address.
-  email: "hello@kishanrnair.dev",
-  // TODO: Replace with your real profile URLs.
+  role: "Full-Stack Developer · AI/ML Engineer · Creative Technologist",
+  availability: "Available for select opportunities & projects",
+  location: "Kochi, Kerala, India — Working Worldwide",
+  email: "kishanrnairwork@gmail.com",
+  phone: "+91 8848045083",
   socials: [
-    { label: "GitHub", url: "https://github.com/your-handle" },
-    { label: "LinkedIn", url: "https://www.linkedin.com/in/your-handle" },
-    { label: "X", url: "https://x.com/your-handle" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/kishan-r-nair-76a183268" },
+    { label: "Email", url: "mailto:kishanrnairwork@gmail.com" },
   ],
   copyright: `© ${new Date().getFullYear()} Kishan R Nair. All rights reserved.`,
 } as const;
