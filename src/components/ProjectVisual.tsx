@@ -45,6 +45,13 @@ function LayeredShowcase({ project }: { project: Project }) {
     ? project.liveUrl.replace(/^https?:\/\//, "")
     : `${project.slug}.dev`;
 
+  const glowBackground =
+    project.slug === "enterprise-sustainability-saas"
+      ? "radial-gradient(ellipse 65% 55% at 50% 45%, rgba(12, 74, 50, 0.65), rgba(16, 145, 98, 0.25) 40%, transparent 75%)"
+      : project.slug === "vians-kitchen-hub"
+      ? "radial-gradient(ellipse 65% 55% at 50% 45%, rgba(168, 75, 24, 0.55), rgba(217, 119, 6, 0.22) 40%, transparent 75%)"
+      : "radial-gradient(ellipse 65% 55% at 50% 45%, rgba(10, 54, 99, 0.55), rgba(14, 116, 144, 0.22) 40%, transparent 75%)";
+
   return (
     <div
       onPointerMove={onMove}
@@ -55,8 +62,7 @@ function LayeredShowcase({ project }: { project: Project }) {
       <div
         className="pointer-events-none absolute inset-0 opacity-80"
         style={{
-          background:
-            "radial-gradient(ellipse 65% 55% at 50% 45%, rgba(10, 54, 99, 0.55), rgba(14, 116, 144, 0.22) 40%, transparent 75%)",
+          background: glowBackground,
         }}
       />
 

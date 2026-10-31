@@ -6,6 +6,7 @@ export const site = {
   // TODO: Replace with your real name / wordmark.
   name: "Kishan R Nair",
   wordmark: "Kishan R Nair",
+  logo: "/KNAIR/wordmark.png",
   // TODO: Replace with your actual role or title.
   role: "Creative Developer & Design Engineer",
   // TODO: Replace with your real availability and location.

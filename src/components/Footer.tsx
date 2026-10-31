@@ -7,8 +7,18 @@ export function Footer() {
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 md:flex-row md:items-start md:justify-between">
         <div className="max-w-xs">
-          <p className="font-display text-xl text-foreground">{site.wordmark}</p>
-          <p className="mt-2 text-sm text-muted-foreground">{site.role}</p>
+          <Link
+            to="/"
+            className="inline-block transition-opacity hover:opacity-85"
+            aria-label={site.name}
+          >
+            <img
+              src={site.logo}
+              alt={site.name}
+              className="h-[18px] w-auto object-contain md:h-[20px]"
+            />
+          </Link>
+          <p className="mt-3 text-sm text-muted-foreground">{site.role}</p>
           <a
             href={`mailto:${site.email}`}
             className="link-line mt-4 inline-block text-sm text-primary"

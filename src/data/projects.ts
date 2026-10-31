@@ -104,34 +104,47 @@ export const projects: Project[] = [
     ],
     outcome:
       "Delivered a production-ready enterprise application empowering corporate teams to centralize sustainability metrics and automate audit-ready reporting.",
-    visual: "workstation-scene",
+    visual: "tilt-browser",
     featured: true,
     images: {
-      desktop: "/projects/sustainability/landing-hero.png",
-      mobile: "/projects/sustainability/landing.png",
+      desktop: "/projects/sustainability/desktop.png",
+      mobile: "/projects/sustainability/mobile.png",
     },
   },
   {
-    slug: "placeholder-monolith",
-    title: "Monolith — Placeholder Project",
-    category: "Creative Coding",
-    year: "2025",
+    slug: "vians-kitchen-hub",
+    title: "Vian's Kitch Hub",
+    category: "E-Commerce · Shopify Platform",
+    year: "2024",
     summary:
-      "Placeholder summary. One line about the experiment or experience.",
+      "A modern, conversion-focused Shopify storefront engineered for premium cookware, tri-ply stainless steel kitchenware, and culinary essentials.",
     description:
-      "Placeholder overview. Describe the creative idea, the technique, and the result in two to three sentences.",
+      "Architected and customized an ethical, high-converting Shopify e-commerce platform for Vian's Kitch Hub, an Indian kitchenware and culinary brand based in Kochi, Kerala. The store features curated product collections—from tri-ply stainless steel cookware and specialty woks to versatile kitchen gadgets—optimized for frictionless browsing, instant checkout, and a seamless mobile-first buyer experience.",
     problem:
-      "Placeholder objective. The design or technical question you explored.",
-    role: "Placeholder — e.g. Design, Code & Motion",
-    tools: ["Three.js", "GLSL", "Motion", "Placeholder Tool"],
-    process: [
-      "Placeholder process step one.",
-      "Placeholder process step two.",
-      "Placeholder process step three.",
+      "The brand required an intuitive digital storefront that balances high-density product discovery with an uncluttered, premium editorial aesthetic to showcase quality materials, build customer trust, and streamline direct-to-consumer sales across India.",
+    role: "E-Commerce Architecture & Shopify Engineering",
+    tools: [
+      "Shopify",
+      "Liquid",
+      "Tailwind CSS",
+      "JavaScript",
+      "Responsive Design",
+      "Conversion Optimization",
     ],
-    outcome: "Placeholder outcome or learnings.",
-    visual: "abstract-env",
+    process: [
+      "Structured curated product navigation and filtering across tri-ply cookware, specialty utensils, and kitchen essentials.",
+      "Engineered a responsive, mobile-first shopping experience with slide-out cart drawers, variant pickers, and express checkout flows.",
+      "Optimized high-resolution product imagery and theme performance to ensure swift page loads and seamless mobile transactions.",
+    ],
+    outcome:
+      "Delivered an elegant, reliable e-commerce experience driving product discovery, trust, and smooth direct-to-consumer transactions.",
+    visual: "tilt-browser",
     featured: true,
+    liveUrl: "https://vianskitchhub.com",
+    images: {
+      desktop: "/projects/vians-kitchen-hub/desktop.png",
+      mobile: "/projects/vians-kitchen-hub/mobile.png",
+    },
   },
   {
     slug: "placeholder-meridian",

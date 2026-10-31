@@ -34,11 +34,10 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${scrolled
           ? "border-b border-border bg-background/85 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
-      }`}
+        }`}
     >
       <nav
         aria-label="Primary"
@@ -46,9 +45,14 @@ export function Nav() {
       >
         <Link
           to="/"
-          className="font-display text-lg tracking-wide text-foreground transition-colors hover:text-primary"
+          className="group flex items-center transition-opacity hover:opacity-85"
+          aria-label={site.name}
         >
-          {site.wordmark}
+          <img
+            src={site.logo}
+            alt={site.name}
+            className="h-[15px] w-auto object-contain md:h-[18px]"
+          />
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -57,11 +61,10 @@ export function Nav() {
               key={link.to}
               to={link.to}
               data-active={isActive(pathname, link.to)}
-              className={`link-line text-sm transition-colors ${
-                isActive(pathname, link.to)
+              className={`link-line text-sm transition-colors ${isActive(pathname, link.to)
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
-              }`}
+                }`}
             >
               {link.label}
             </Link>
@@ -106,11 +109,10 @@ export function Nav() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`rounded-md px-3 py-3 text-base ${
-                    isActive(pathname, link.to)
+                  className={`rounded-md px-3 py-3 text-base ${isActive(pathname, link.to)
                       ? "text-primary"
                       : "text-muted-foreground"
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>

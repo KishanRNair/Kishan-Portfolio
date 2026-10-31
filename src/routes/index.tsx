@@ -58,14 +58,11 @@ function Home() {
         {/* Ambient atmospheric backdrop */}
         <HeroStage className="absolute inset-0 pointer-events-none" />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-24 pb-16 md:py-32">
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pt-24 pb-16 md:py-32">
           <div className="grid items-center gap-8 md:grid-cols-12 lg:gap-12">
-            {/* Left Column: Editorial Headline & Copy */}
-            <div className="md:col-span-7 lg:col-span-7 xl:col-span-7">
-              <p className="eyebrow text-primary">
-                {site.availability} · {site.location}
-              </p>
-              <h1 className="text-hero mt-6 font-display font-medium text-foreground">
+            {/* Left Column: Editorial Headline & Copy (aligned flush with brand logo) */}
+            <div className="md:col-span-7 lg:col-span-7">
+              <h1 className="text-hero font-display font-medium text-foreground">
                 <WordsReveal text="I build digital experiences that feel alive." />
               </h1>
               <p className="mt-8 max-w-xl text-lg text-muted-foreground">

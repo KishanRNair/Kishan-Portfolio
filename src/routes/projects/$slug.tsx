@@ -104,12 +104,12 @@ function ProjectDetail() {
           </p>
         </header>
 
-        {/* Large hero visual */}
+        {/* Hero visual — reduced and sized proportionally like the home page showcase */}
         <Reveal className="mt-14">
           <ProjectVisual
             visual={project.visual}
             project={project}
-            className="aspect-[16/9]"
+            className="mx-auto w-full max-w-2xl aspect-[16/11]"
           />
         </Reveal>
 
